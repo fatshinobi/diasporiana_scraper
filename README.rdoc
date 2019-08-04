@@ -1,0 +1,7 @@
+# Diasporiana scraper
+
+## Ruby console application for books checking at diasporiana.org.ua
+
+## System Requirements
+  * Ruby 2.x
+  * MongoDB
