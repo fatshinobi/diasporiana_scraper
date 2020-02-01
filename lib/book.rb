@@ -3,7 +3,9 @@ class Book
 
   MONTHS = {'Січень' => 'Jan', 'Лютий' => 'Feb', 'Березень' => 'Mar', 'Квітень' => 'Apr', 'Травень' => 'May', 
     'Червень' => 'Jun', 'Липень' => 'Jul', 'Серпень' => 'Aug', 'Вересень' => 'Sep', 'Жовтень' => 'Oct',
-    'Листопад' => 'Nov', 'Грудень' => 'Dec'}
+    'Листопад' => 'Nov', 'Грудень' => 'Dec', 'Січня' => 'Jan', 'Лютого' => 'Feb', 'Березня' => 'Mar', 'Квітня' => 'Apr', 'Травня' => 'May', 
+    'Червня' => 'Jun', 'Липня' => 'Jul', 'Серпня' => 'Aug', 'Вересня' => 'Sep', 'Жовтня' => 'Oct',
+    'Листопада' => 'Nov', 'Грудня' => 'Dec'}
 
   def initialize(post_header)
     @uri = post_header.css('a')[0]['href']
@@ -30,6 +32,7 @@ class Book
     post = doc.css('div.post')
     @title = post.css('h1')[0].text
     info_blocks = post.css('span.info-line')
+
     @original_date = info_blocks[0].text.gsub('Додано:', '').lstrip
     @publish_date = Date.parse(ukranian_date_to_english(@original_date))
     @author = info_blocks[1].text.gsub('Автор:', '').lstrip
